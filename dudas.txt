@@ -1,0 +1,5 @@
+Este es un fichero para ir recopilando dudas funcionales o técnicos para preguntar a Tutor:
+
+- Duda 1 (funcional): ¿Hay que controlar que los únicos empleados validos sean los de demo?
+--> Por ejemplo podríamos pedir que nos indique el id de empleado nada más empezar y sino lo tiene que se lo pida a RRHH.
+--> Podríamos permitir interactuar sin id de empleado, pero debe responder preguntas de seguridad (nombre alumno, fecha inicio, responsable y ubicación)
