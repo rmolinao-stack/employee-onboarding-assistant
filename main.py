@@ -1,12 +1,9 @@
-def init():
-    """Esta función se encarga de cargar el entorno de trabajo inicial"""
-
-    #ESTO TENDRIA QUE CREAR LOS OBJETOS EMPLEADOS, DOSC, EMPRESA Y FAQ
-
-
+from model.data_model import DataModel
 
 def main():
-    init()
+    data_model = DataModel()
+
+    print(data_model.empresa.getData())
     
     
     

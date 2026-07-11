@@ -3,7 +3,7 @@ import common.constants as constants
 
 class Empresa:
     def __init__(self):
-        self.data = utils.cargar_json(constants.EMPLEADOS_DEMO_PATH)
-            
-    def getEmpresa(self) -> dict:
+        self.data = utils.cargar_json(constants.EMPRESA_PATH)
+                    
+    def getData(self) -> dict:
         return self.data
