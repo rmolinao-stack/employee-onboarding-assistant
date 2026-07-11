@@ -1,9 +1,9 @@
 from model.data_model import DataModel
 
 def main():
+    #RMO: Cargamos todo el modelo de datos.
     data_model = DataModel()
-
-    print(data_model.empresa.getData())
+    
     
     
     

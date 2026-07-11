@@ -7,7 +7,7 @@ EMPRESA_PATH = DATA_DIR / "empresa.json"
 FAQ_PATH = DATA_DIR / "faq_onboarding.json"
 DOCS_PATH = DATA_DIR / "onboarding_docs.json"
 
-# RMO: Se indica que proveedor de LLM se va a utilizar.
+# RMO: Se indica que proveedor de LLM se va a utilizar.git 
 LLM_PROVEEDOR = "GEMINI"
 # RMO: Modelo principal del proyecto
 LLM_MODEL_A = "gemini-3-flash-preview"
