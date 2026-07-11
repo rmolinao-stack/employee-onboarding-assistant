@@ -16,8 +16,7 @@ employee-onboarding-assistant/
 │   ├── context_delimiter.py       # Selección de docs/FAQ relevantes para delimitar el contexto.
 │   ├── prompt_builder.py          # Construcción dinámica de prompts.
 │   ├── user_history.py            # Perfil empleado + historial.
-│   ├── llm_auth.py                # Intermediario: selecciona .py encargado de cargar API Key según LLM seleccionado.
-│   ├── llm_client.py              # Intermediario: selecciona .py encargado de hacer llamada según LLM seleccionado.
+│   ├── llm_orchestrator.py        # Intermediario: Se encarga de configurar API si hace falta y llamar al LLM de turno.
 │   ├── gemini/
 │   │   ├── gemini_auth.py         # Carga de API key de gemini
 │   │   ├── gemini_client.py       # Llamadas al LLM de gemini
@@ -25,7 +24,7 @@ employee-onboarding-assistant/
 │   ├── orchestrator.py            # Orquestación (turnos, checklist, modos)
 │   └── validators.py              # Validación y dominio acotado
 ├── common/                        # Carpeta de componentes generales
-│   ├── constants.py               # Constantes (perfiles, modelos, límites de contexto)
+│   ├── config.py                   # Se definen los valores de losp parametros que depende el comportamiento del sistema.
 │   └── utils.py                   # Funciones genéricas auxiliares y reutilizables
 ├── benchmark/                     # Carpeta de reports/benchmark
 │   └── benchmark.py               # Parte 4 — ejecución del benchmark y export a output/
