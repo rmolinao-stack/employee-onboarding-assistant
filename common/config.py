@@ -38,7 +38,7 @@ PERFILES = {
         ),
         "tono": "Debes tener un tono poco técnico y orientado orientado a ventas.",
     },
-    "remoto_ue": {
+    "remoto_eu": {
         "perfil": (
             "Orientado a políticas cross-border."
             "Trabaja en remoto internacionalmente."
@@ -52,8 +52,7 @@ PERFILES = {
 TURNOS = 10
 
 #############################
-# PARAMETROS PARA DEMO Nº 1 # 
+# PARAMETROS PARA DEMOS     # 
 #############################
 
-#RMO: USUARIO PARA LA DEMO 1
-# USER_DEMO_1 = "emp_01"
+DIA_ONBOARDING = 1

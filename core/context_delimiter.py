@@ -28,8 +28,8 @@ def seleccionar_docs(faqs: list[dict], data_model: DataModel, consulta: str, max
         for tag in entry.get("tags", []):
             if tag.lower() in q:
                 score += 2
-        #if entry.get("topic_id", "").lower() in q:
-        #    score += 3
+        if entry.get("departamento", "").lower() in q:
+            score += 1
         if score > 0:
             puntuaciones.append((score, entry))
 

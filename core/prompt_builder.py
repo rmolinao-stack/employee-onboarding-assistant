@@ -65,8 +65,8 @@ El empleado al que debes ayudar tiene los siguientes datos relvantes:
 
 El departamento tiene la siguiente misión {dept_mision}.
 
-El empleado tiene el siguiente perfil: {PERFILES["dev_junior"]["perfil"]}.
-Debes aplicar el siguiente tono: {PERFILES["dev_junior"]["tono"]}. 
+El empleado tiene el siguiente perfil: {PERFILES[user_history.user_profile["perfil"]]["perfil"]}.
+Debes aplicar el siguiente tono: {PERFILES[user_history.user_profile["perfil"]]["tono"]}. 
 En el tono debes tener en cuenta la misión del departamento.
 
 Además debes seguir las siguientes instrucciones immutables:

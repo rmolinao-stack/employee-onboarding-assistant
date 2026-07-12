@@ -46,10 +46,13 @@ def seleccionar_docs(faqs: list[dict], data_model: DataModel, consulta: str, max
 
 def procesar_llamada(data_model: DataModel, llm_config: LlmConfig, user_history: UserHistory, user_msg: str, faqs: list[dict], docs: list[dict]) -> str:
     prompt = prompt_builder.build_assistant_prompt(data_model, llm_config, user_history, user_msg, faqs, docs)
+    # print (prompt)
     user_history.append_user_message(user_msg)
     return llamar_llm(prompt, temperature=TEMPERATURE)
     # return ""
 
+def procesar_llamada_json(data_model: DataModel, llm_config: LlmConfig, user_history: UserHistory, docs: list[dict]) -> str:
+    print("PENDIENTE DE PROGRAMAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
 def llamar_llm(prompt: str,
     *,
