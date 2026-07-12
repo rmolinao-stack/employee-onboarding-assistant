@@ -10,3 +10,15 @@ class DataModel:
         self.empleados = Empleados()
         self.docs = Docs()
         self.faqs = Faqs()
+    
+    def getEmpresa(self) -> dict:
+        return self.empresa.getData()
+    
+    def getEmpleados(self) -> list[dict]:
+        return self.empleados.getData()
+    
+    def getDocs(self) -> list[dict]:
+        return self.docs.getData()
+    
+    def getFaqs(self) -> list[dict]:
+        return self.faqs.getData()

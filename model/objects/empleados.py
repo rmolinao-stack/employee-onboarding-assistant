@@ -7,3 +7,11 @@ class Empleados:
             
     def getData(self) -> list[dict]:
         return self.data
+    
+    def getEmpleado(self, id_empl: str) -> dict:
+        empleado = None
+        for data in self.data:
+            if str(data["id"]).upper() == id_empl.upper().strip():
+                empleado = data
+
+        return empleado

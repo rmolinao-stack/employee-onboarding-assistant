@@ -12,19 +12,19 @@ employee-onboarding-assistant/
 │       ├── empleados.py           # Objeto que contiene data\empleados_demo.json.
 │       ├── empresa.py             # Objeto que contiene data\empresa.json.
 │       └── faqs.py                # Objeto que contiene data\faq_onboarding.json.
-├── llm/                           # Carpeta donde se encuentran los procesos relacionados con LLM.
-│   ├── context_delimiter.py       # Selección de docs/FAQ relevantes para delimitar el contexto.
-│   ├── prompt_builder.py          # Construcción dinámica de prompts.
-│   ├── user_history.py            # Perfil empleado + historial.
-│   ├── llm_orchestrator.py        # Intermediario: Se encarga de configurar API si hace falta y llamar al LLM de turno.
-│   ├── gemini/
-│   │   ├── gemini_auth.py         # Carga de API key de gemini
-│   │   ├── gemini_client.py       # Llamadas al LLM de gemini
+├── llm/                           # Carpeta donde se encuentran los procesos particulares de llamadas a LLMA.
+│   └── gemini/
+│       ├── gemini_auth.py         # Carga de API key de gemini
+│       └── gemini_client.py       # Llamadas al LLM de gemini
 ├── core/                          # Carpeta donde guardamos los ficheros de la capa de negocio
 │   ├── orchestrator.py            # Orquestación (turnos, checklist, modos)
+│   ├── llm_config.py              # Objeto para configurar los valores con los que trabajará el LLM
+│   ├── context_delimiter.py       # Selección de docs/FAQ relevantes para delimitar el contexto.
+│   ├── prompt_builder.py          # Construcción dinámica de prompts.
+│   ├── user_history.py            # Objeto para mantener el perfil del empleado y su historial.
 │   └── validators.py              # Validación y dominio acotado
 ├── common/                        # Carpeta de componentes generales
-│   ├── config.py                   # Se definen los valores de losp parametros que depende el comportamiento del sistema.
+│   ├── config.py                  # Se definen los valores de losp parametros que depende el comportamiento del sistema.
 │   └── utils.py                   # Funciones genéricas auxiliares y reutilizables
 ├── benchmark/                     # Carpeta de reports/benchmark
 │   └── benchmark.py               # Parte 4 — ejecución del benchmark y export a output/
@@ -38,3 +38,12 @@ employee-onboarding-assistant/
 ├── README.md                      # Documentación principal
 └── requirements.txt               # Librerías de Python
 ```
+
+# Precondiciones
+
+* Se requiere identificador de empleado para poder interactuar con el chat. Si no eres empleado no tiene sentido interactuar con dicho chat. Además se valida que el empleado sea válido.
+
+# Mejoras a aplicar en fase 2
+
+* En el modo chat libre para que un empleado no suplante a otro se le debería enviar un clave de seguridad por email que debería introducir al indicar el código de empleado.
+  * Tendríamos que tener una key maestra para cuando se llama internamente (o directamente si llamamos por dentro nos fiamos)

@@ -33,7 +33,7 @@ PERFILES = {
     "comercial": {
         "perfil": (
             "Comercial orientado a ventas."
-            "Poco técnico.",
+            "Poco técnico."
             "Con conocimientos en herramientas comerciales."
         ),
         "tono": "Debes tener un tono poco técnico y orientado orientado a ventas.",
@@ -49,11 +49,11 @@ PERFILES = {
 
 # RMO: MAXIMO NUMERO DE TURNOS (LO QUE RECUERDA EL LLM) QUE SOPORTA 
 # EL SISTEMA
-TURNOS = 4
+TURNOS = 10
 
 #############################
 # PARAMETROS PARA DEMO Nº 1 # 
 #############################
 
 #RMO: USUARIO PARA LA DEMO 1
-USER_DEMO_1 = "emp_01"
+# USER_DEMO_1 = "emp_01"
