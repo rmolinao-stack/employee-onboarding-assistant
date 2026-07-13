@@ -23,5 +23,8 @@ class UserHistory:
     
     def ultimos_n(self, n: int) -> list[dict]:
         """Devuelve los últimos n mensajes."""
+        print("=" * 120)
+        print(f"HAY QUE ARREGAR ***ultimos_n*** PORQUE NO DEVUELVE LOS ULTIMOS TURNOS SINO LOS ULTIMOS MENSAJES!!!! VER EL CODIGO ORIGINAL!!!!!")
+        print("=" * 120)
         return self.messages[-n:] if n > 0 else []
 

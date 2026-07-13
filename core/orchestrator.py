@@ -38,11 +38,11 @@ def obtener_datos_usuario(data_model: DataModel, id_empl: str) -> dict:
 def inicializar_asistente_llm() -> LlmConfig:
     return LlmConfig()
 
-def seleccionar_faqs(data_model: DataModel, consulta: str, max_entradas: int = 2) -> list[dict]:
-    return context_delimiter.seleccionar_faqs(data_model, consulta, max_entradas)
+def seleccionar_faqs(data_model: DataModel, empl: str, consulta: str, max_entradas: int = 2) -> list[dict]:
+    return context_delimiter.seleccionar_faqs(data_model, empl, consulta, max_entradas)
 
-def seleccionar_docs(faqs: list[dict], data_model: DataModel, consulta: str, max_entradas: int = 4) -> list[dict]:
-    return context_delimiter.seleccionar_docs(faqs, data_model, consulta, max_entradas)
+def seleccionar_docs(faqs: list[dict], empl: str, data_model: DataModel, consulta: str, max_entradas: int = 4) -> list[dict]:
+    return context_delimiter.seleccionar_docs(faqs, empl, data_model, consulta, max_entradas)
 
 def procesar_llamada(data_model: DataModel, llm_config: LlmConfig, user_history: UserHistory, user_msg: str, faqs: list[dict], docs: list[dict]) -> str:
     prompt = prompt_builder.build_assistant_prompt(data_model, llm_config, user_history, user_msg, faqs, docs)

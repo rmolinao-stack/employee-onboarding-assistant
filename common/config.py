@@ -15,7 +15,8 @@ DOCS_PATH = DATA_DIR / "onboarding_docs.json"
 # RMO: Se indica que proveedor de LLM se va a utilizar.git 
 LLM_PROVEEDOR = "GEMINI"
 # RMO: Modelo principal del proyecto
-MODEL = "gemini-3-flash-preview"
+#MODEL = "gemini-3-flash-preview"
+MODEL ="gemini-3.1-flash-lite-preview"
 # RMO: Modelo secundario para hacer las pruebas de benchmark
 # LLM_MODEL_B = "gemini-3-flash-preview"
 # RMO: Temperartura de los modelos.
@@ -49,7 +50,7 @@ PERFILES = {
 
 # RMO: MAXIMO NUMERO DE TURNOS (LO QUE RECUERDA EL LLM) QUE SOPORTA 
 # EL SISTEMA
-TURNOS = 10
+TURNOS = 4
 
 #############################
 # PARAMETROS PARA DEMOS     # 
