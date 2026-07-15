@@ -1,4 +1,5 @@
 from common.utils import imprimir_contexto_seleccionado
+from common.safety import construir_respuesta_segura, validar_mensaje_usuario
 from model.data_model import DataModel
 from common.config import DOCS_LIMIT, FAQS_LIMIT, TEMPERATURE, LLM_PROVEEDOR
 from llm.gemini.gemini_auth import configurar_gemini_api_key
@@ -47,6 +48,14 @@ def seleccionar_docs(faqs: list[dict], empl: str, data_model: DataModel, consult
     return context_delimiter.seleccionar_docs(faqs, empl, data_model, consulta, max_entradas, dia_onboarding)
 
 def procesar_llamada(data_model: DataModel, llm_config: LlmConfig, user_history: UserHistory, user_msg: str, faqs: list[dict], docs: list[dict]) -> str:
+    print("############### A REVISAR ###############") 
+    valido, razon = validar_mensaje_usuario(user_msg)
+    if not valido:
+        user_history.append_user_message(user_msg)
+        user_history.append_assistant_message(construir_respuesta_segura(razon))
+        return construir_respuesta_segura(razon)
+    print("############### FIN A REVISAR ###############") 
+
     prompt = prompt_builder.build_assistant_prompt(data_model, llm_config, user_history, user_msg, faqs, docs)
     # print (prompt)
     user_history.append_user_message(user_msg)

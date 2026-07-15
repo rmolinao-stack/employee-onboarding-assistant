@@ -1,7 +1,8 @@
 import core.orchestrator as orchestrator
 from model.data_model import DataModel
-from core.user_history import UserHistory
+from common.utils import cargar_json
 from common.config import DIA_ONBOARDING, DOCS_LIMIT
+from pathlib import Path
 
 
 def demo_11_conversacion(data_model: DataModel, empl: str, dia_onboarding: int = DIA_ONBOARDING):
@@ -30,6 +31,19 @@ def demo_13_conversacion_5_dias(data_model: DataModel, empl: str):
 def demo_21_checklist(data_model: DataModel, empl: str, dia_onboarding: int = DIA_ONBOARDING):
     orchestrator.generar_checklist_json(data_model, empl, dia_onboarding)
 
+####### RMO: ESTO HAY QUE SACARLO DE AQUI Y METERNOR EN ORQUESTADOR... AQUI NO SE DEBERÍA HACER NADA DE CARGAR JSON
+def demo_41_demo_vulnerable_vs_segura(data_model: DataModel, empl: str, dia_onboarding: int = DIA_ONBOARDING):
+    casos = cargar_json(Path("data/casos_trampa.json"))
+    caso = casos[0]
+    mensaje_malicioso = caso["mensaje"]
+
+    print("=== Demo vulnerable vs segura ===")
+    print("Input malicioso:", mensaje_malicioso)
+    print("\nComportamiento vulnerable (ejemplo de fallo):")
+    print("  - El sistema respondería sin bloquear la solicitud y podría exponer información no autorizada.")
+    print("\nComportamiento seguro (implementado):")
+    orchestrator.simular_conversacion(data_model, empl, [mensaje_malicioso], dia_onboarding)
+
 def demo_22_checklist_5_dias(data_model: DataModel, empl: str):
     for dia in range(1, 6):
         print("=" * 80)
@@ -41,7 +55,7 @@ def demo_31_comparar_perfiles(data_model: DataModel, empl1: str, empl2: str, dia
     ############ EMPLEADO 1 ##################
     print("=" * 80)
     print(f"id: {empl1}" )
-    print(f"perfil: {data_model.empleados.getEmpleado(empl1)["perfil"]}")
+    print(f"perfil: {data_model.empleados.getEmpleado(empl1)['perfil']}")
     print("=" * 80)
     
     orchestrator.simular_conversacion(data_model, empl1, ["¿A qué canales de slack tengo que unirme?"], dia_onboarding)
@@ -50,7 +64,7 @@ def demo_31_comparar_perfiles(data_model: DataModel, empl1: str, empl2: str, dia
 
     print("=" * 80)
     print(f"id: {empl2}" )
-    print(f"perfil: {data_model.empleados.getEmpleado(empl2)["perfil"]}")
+    print(f"perfil: {data_model.empleados.getEmpleado(empl2)['perfil']}")
     print("=" * 80)
     
     orchestrator.simular_conversacion(data_model, empl2, ["¿A qué canales de slack tengo que unirme?"], dia_onboarding)
@@ -66,7 +80,7 @@ def main():
                - AS21: Demo de asistente que simula checklist JSON, para el día de onboarding {DIA_ONBOARDING}.
                - AS22: Demo de asistente que simula checklist JSON, para los cinco primeros días.
                - AS31: Demo de asistente que simula mismo mensaje con empleado comercial vs remoto UE, para el día de onboarding {DIA_ONBOARDING}.
-               
+               - AS41: Demo de seguridad con un caso trampa y comparación vulnerable vs segura.
 #Indentificador: """)
 
     if id.upper() == "AS11":
@@ -81,6 +95,8 @@ def main():
         demo_22_checklist_5_dias(data_model, "emp_01")
     elif id.upper() == "AS31":
         demo_31_comparar_perfiles(data_model, "emp_02", "emp_03")
+    elif id.upper() == "AS41":
+        demo_41_demo_vulnerable_vs_segura(data_model, "emp_01")
     
     else:
         print("Identificador no soportado. Fin del programa")
