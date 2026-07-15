@@ -22,7 +22,7 @@ employee-onboarding-assistant/
 │   ├── context_delimiter.py       # Selección de docs/FAQ relevantes para delimitar el contexto.
 │   ├── prompt_builder.py          # Construcción dinámica de prompts.
 │   ├── user_history.py            # Objeto para mantener el perfil del empleado y su historial.
-│   └── validators.py              # Validación y dominio acotado
+│   └── validators.py              # Validación, robustez y dominio acotado
 ├── common/                        # Carpeta de componentes generales
 │   ├── config.py                  # Se definen los valores de losp parametros que depende el comportamiento del sistema.
 │   └── utils.py                   # Funciones genéricas auxiliares y reutilizables

@@ -1,5 +1,6 @@
+from common.utils import imprimir_contexto_seleccionado
 from model.data_model import DataModel
-from common.config import TEMPERATURE, LLM_PROVEEDOR
+from common.config import DOCS_LIMIT, FAQS_LIMIT, TEMPERATURE, LLM_PROVEEDOR
 from llm.gemini.gemini_auth import configurar_gemini_api_key
 from llm.gemini.gemini_client import llamar_gemini
 from core.user_history import UserHistory
@@ -9,7 +10,7 @@ import core.prompt_builder as prompt_builder
 import sys
 
 
-def inicializar_user_history(data_model: DataModel, id_empl: str | None = None) -> UserHistory:
+def inicializar_user_history(data_model: DataModel, id_empl: str | None = None, print_initial_messages: bool = True) -> UserHistory:
     empleado: dict = None
     intentos = 0
     initial_msg1 = f"""Bienvenido a {data_model.empresa.data["producto_reto"]} de {data_model.empresa.data["nombre"]}. 
@@ -27,8 +28,9 @@ Mi objetivo es resolver todas las preguntas que tengas referente al proceso de O
             print("Has indicado 3 códigos de empleados invalidos. El chat va a finalizar.")
             sys.exit()
     
-    initial_msg2 = f"Te has identificado como {empleado["nombre"]}, ¿en que puedo ayudarte?"
-    print(initial_msg1 + "\n" + initial_msg2)
+    initial_msg2 = f"Te has identificado como {empleado['nombre']}, ¿en que puedo ayudarte?"
+    if print_initial_messages:
+        print(initial_msg1 + "\n" + initial_msg2)
 
     return UserHistory(empleado, [{"role": "assistant", "text": initial_msg1 + "\n" + initial_msg2}])
 
@@ -38,11 +40,11 @@ def obtener_datos_usuario(data_model: DataModel, id_empl: str) -> dict:
 def inicializar_asistente_llm() -> LlmConfig:
     return LlmConfig()
 
-def seleccionar_faqs(data_model: DataModel, empl: str, consulta: str, max_entradas: int = 2) -> list[dict]:
-    return context_delimiter.seleccionar_faqs(data_model, empl, consulta, max_entradas)
+def seleccionar_faqs(data_model: DataModel, empl: str, consulta: str, max_entradas: int, dia_onboarding: int) -> list[dict]:
+    return context_delimiter.seleccionar_faqs(data_model, empl, consulta, max_entradas, dia_onboarding)
 
-def seleccionar_docs(faqs: list[dict], empl: str, data_model: DataModel, consulta: str, max_entradas: int = 4) -> list[dict]:
-    return context_delimiter.seleccionar_docs(faqs, empl, data_model, consulta, max_entradas)
+def seleccionar_docs(faqs: list[dict], empl: str, data_model: DataModel, consulta: str, max_entradas: int, dia_onboarding: int) -> list[dict]:
+    return context_delimiter.seleccionar_docs(faqs, empl, data_model, consulta, max_entradas, dia_onboarding)
 
 def procesar_llamada(data_model: DataModel, llm_config: LlmConfig, user_history: UserHistory, user_msg: str, faqs: list[dict], docs: list[dict]) -> str:
     prompt = prompt_builder.build_assistant_prompt(data_model, llm_config, user_history, user_msg, faqs, docs)
@@ -51,8 +53,12 @@ def procesar_llamada(data_model: DataModel, llm_config: LlmConfig, user_history:
     return llamar_llm(prompt, temperature=TEMPERATURE)
     # return ""
 
-def procesar_llamada_json(data_model: DataModel, llm_config: LlmConfig, user_history: UserHistory, docs: list[dict]) -> str:
-    print("PENDIENTE DE PROGRAMAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+def procesar_llamada_json(data_model: DataModel, llm_config: LlmConfig, user_history: UserHistory, docs: list[dict], dia_onboarding: int) -> str:
+    prompt = prompt_builder.build_checklist_json_prompt(data_model, llm_config, user_history, docs, dia_onboarding)
+    # print (prompt)
+    return llamar_llm(prompt, temperature=TEMPERATURE)
+    # return ""
+
 
 def llamar_llm(prompt: str,
     *,
@@ -63,4 +69,26 @@ def llamar_llm(prompt: str,
         return llamar_gemini(prompt=prompt, temperature=temperature)
     else:
         raise ValueError(f"Proveedor {LLM_PROVEEDOR} de LLM no está soportado.")
+    
+def simular_conversacion(data_model: DataModel, empl: str, list_msg: list[str], dia_onboarding: int):
+    user_history = inicializar_user_history(data_model, empl)
+    llm_config = inicializar_asistente_llm()
+    
+    for user_msg in list_msg:
+        faqs = seleccionar_faqs(data_model, empl, user_msg, FAQS_LIMIT, dia_onboarding)
+        docs = seleccionar_docs(faqs, empl, data_model, user_msg, DOCS_LIMIT, dia_onboarding)
+        # imprimir_contexto_seleccionado(faqs, docs)
+        llm_msg = procesar_llamada(data_model, llm_config, user_history, user_msg, faqs, docs)
+        user_history.append_assistant_message(llm_msg)
+        print(user_msg)
+        print(llm_msg)
+
+def generar_checklist_json(data_model: DataModel, empl: str, dia_onboarding: int):
+    user_history = inicializar_user_history(data_model, empl, False)
+    llm_config = inicializar_asistente_llm()
+    
+    docs = seleccionar_docs([{}], empl, data_model, "", DOCS_LIMIT, dia_onboarding)
+    llm_msg = procesar_llamada_json(data_model, llm_config, user_history, docs, dia_onboarding)
+
+    print(llm_msg)
 

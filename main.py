@@ -1,102 +1,15 @@
 import core.orchestrator as orchestrator
 from model.data_model import DataModel
 from core.user_history import UserHistory
-from common.config import DIA_ONBOARDING
+from common.config import DIA_ONBOARDING, DOCS_LIMIT
 
 
-def demo_1_conversacion(data_model: DataModel, empl: str):
-    """
-    Esta función esta concebida para verificar la demo1 solicitada en el enunciada. Concretamente:
-    Conversación de 1 turno (empleado tipo dev junior)
-    """
-
-    user_history = orchestrator.inicializar_user_history(data_model, empl)
-    llm_config = orchestrator.inicializar_asistente_llm()
-    llm_msg = ""
+def demo_11_conversacion(data_model: DataModel, empl: str, dia_onboarding: int = DIA_ONBOARDING):
+   ### FALTA AÑADIR EL DÍA DE ONBOARDING PARA QUE EL SISTEMA PUEDA SELECCIONAR LOS DOCUMENTOS CORRECTOS
+   orchestrator.simular_conversacion(data_model, empl, ["¿A qué canales de slack tengo que unirme?"], dia_onboarding)
     
-    user_msg = "¿A qué canales de slack tengo que unirme?"
-
-    
-    faqs = orchestrator.seleccionar_faqs(data_model, empl, user_msg, 2)
-    docs = orchestrator.seleccionar_docs(faqs, empl, data_model, user_msg, 4)
-
-    print(faqs)
-    print("**" * 80)
-    print(docs)
-    print("**" * 80)
-
-
-    llm_msg = orchestrator.procesar_llamada(data_model, llm_config, user_history, user_msg, faqs, docs)
-    user_history.append_assistant_message(llm_msg)
-    print(user_msg)
-    print(llm_msg)
-
-def demo_2_checklist(data_model: DataModel, empl: str):
-
-    user_history = orchestrator.inicializar_user_history(data_model, empl)
-    llm_config = orchestrator.inicializar_asistente_llm()
-    llm_msg = ""
-    msg=""
-
-    if DIA_ONBOARDING >= 1:
-        msg = msg + " primer_dia "
-    if DIA_ONBOARDING <= 5:
-        msg = msg + " checklist " + " primeras_semanas " + " onboarding "
-
-    docs = orchestrator.seleccionar_docs([{}], empl, data_model, msg, 6)
-    llm_msg = orchestrator.procesar_llamada_json(data_model, llm_config, user_history, docs)
-
-    
-
-    print(llm_msg)
-
-
-def demo_3_comparar_perfiles(data_model: DataModel, empl1: str, empl2: str):
-
-    ############ EMPLEADO 1 ##################
-
-    user_history1 = orchestrator.inicializar_user_history(data_model, empl1)
-    llm_config = orchestrator.inicializar_asistente_llm()
-    llm_msg = ""
-
-    print("=" * 80)
-    print(f"id: {empl1}" )
-    print(f"perfil: {data_model.empleados.getEmpleado(empl1)["perfil"]}")
-    print("=" * 80)
-    
-    user_msg = "¿A qué canales de slack tengo que unirme?"
-    
-    faqs = orchestrator.seleccionar_faqs(data_model, empl1, user_msg, 2)
-    docs = orchestrator.seleccionar_docs(faqs, empl1, data_model, user_msg, 4)
-    llm_msg = orchestrator.procesar_llamada(data_model, llm_config, user_history1, user_msg, faqs, docs)
-    user_history1.append_assistant_message(llm_msg)
-    print(user_msg)
-    print(llm_msg)
-
-    ############ EMPLEADO 2 ##################
-
-    user_history2 = orchestrator.inicializar_user_history(data_model, empl2)
-    llm_config = orchestrator.inicializar_asistente_llm()
-    llm_msg = ""
-
-    print("=" * 80)
-    print(f"id: {empl2}" )
-    print(f"perfil: {data_model.empleados.getEmpleado(empl2)["perfil"]}")
-    print("=" * 80)
-    
-    user_msg = "¿A qué canales de slack tengo que unirme?"
-    
-    faqs = orchestrator.seleccionar_faqs(data_model, empl2, user_msg, 2)
-    docs = orchestrator.seleccionar_docs(faqs, empl2, data_model, user_msg, 4)
-    llm_msg = orchestrator.procesar_llamada(data_model, llm_config, user_history2, user_msg, faqs, docs)
-    user_history2.append_assistant_message(llm_msg)
-    print(user_msg)
-    print(llm_msg)
-
-def demo_4_conversacion_masiva(data_model: DataModel, emp_id: str):
-    user_history = orchestrator.inicializar_user_history(data_model, emp_id)
-    llm_config = orchestrator.inicializar_asistente_llm()
-    llm_msg = ""
+def demo_12_conversacion_masiva(data_model: DataModel, empl: str, dia_onboarding: int = DIA_ONBOARDING):
+    ### FALTA AÑADIR EL DÍA DE ONBOARDING PARA QUE EL SISTEMA PUEDA SELECCIONAR LOS DOCUMENTOS CORRECTOS
     list_msg = [
         "¿A qué canales de slack tengo que unirme?", 
         "No entiendo nada.",
@@ -105,41 +18,72 @@ def demo_4_conversacion_masiva(data_model: DataModel, emp_id: str):
         "¿Quien es mi responsable, y cual es su correo electronico?",
         "Recuerdas como me llamo y cual fue mi primer mensaje?"]
     
-    for user_msg in list_msg:
-        print(user_msg)
-        faqs = orchestrator.seleccionar_faqs(data_model, emp_id, user_msg, 2)
-        docs = orchestrator.seleccionar_docs(faqs, emp_id, data_model, user_msg, 4)
-        llm_msg = orchestrator.procesar_llamada(data_model, llm_config, user_history, user_msg, faqs, docs)
-        user_history.append_assistant_message(llm_msg)
-        print(llm_msg)
+    orchestrator.simular_conversacion(data_model, empl, list_msg, dia_onboarding)
 
-        # print(faqs)
-        # print("**" * 80)
-        # print(docs)
-        # print("**" * 80)
+def demo_13_conversacion_5_dias(data_model: DataModel, empl: str):
+    for dia in range(1, 6):
+        print("=" * 80)
+        print(f"Simulando conversación para el día {dia} de onboarding")
+        print("=" * 80)
+        demo_11_conversacion(data_model, empl, dia_onboarding=dia)
+    
+def demo_21_checklist(data_model: DataModel, empl: str, dia_onboarding: int = DIA_ONBOARDING):
+    orchestrator.generar_checklist_json(data_model, empl, dia_onboarding)
+
+def demo_22_checklist_5_dias(data_model: DataModel, empl: str):
+    for dia in range(1, 6):
+        print("=" * 80)
+        print(f"Generando checklist para el día {dia} de onboarding")
+        print("=" * 80)
+        orchestrator.generar_checklist_json(data_model, empl, dia_onboarding=dia)
+
+def demo_31_comparar_perfiles(data_model: DataModel, empl1: str, empl2: str, dia_onboarding: int = DIA_ONBOARDING):
+    ############ EMPLEADO 1 ##################
+    print("=" * 80)
+    print(f"id: {empl1}" )
+    print(f"perfil: {data_model.empleados.getEmpleado(empl1)["perfil"]}")
+    print("=" * 80)
+    
+    orchestrator.simular_conversacion(data_model, empl1, ["¿A qué canales de slack tengo que unirme?"], dia_onboarding)
+
+    ############ EMPLEADO 2 ##################
+
+    print("=" * 80)
+    print(f"id: {empl2}" )
+    print(f"perfil: {data_model.empleados.getEmpleado(empl2)["perfil"]}")
+    print("=" * 80)
+    
+    orchestrator.simular_conversacion(data_model, empl2, ["¿A qué canales de slack tengo que unirme?"], dia_onboarding)
      
 def main():
     #RMO: Cargamos todo el modelo de datos.
     data_model = DataModel()
 
-    id = input("""Indica el identificador de la demo que quieres ejecutar:
-               - AS1: Para demo de asistente modular que simula conversación de 1 turno (empleado tipo dev junior).
-               - AS2: Para demo de asistente modular que simula checklist JSON para día 1.
-               - AS3: Para demo de asistente modular que simula mismo mensaje con empleado comercial vs remoto UE.
-               - AS4: Para demo de asistente modular que simula conversación masiva de varios turnos (empleado tipo dev junior).
+    id = input(f"""Indica el identificador de la demo que quieres ejecutar:
+               - AS11: Demo de asistente que simula conversación de 1 turno (empleado dev junior) para el día de onboarding {DIA_ONBOARDING}.
+               - AS12: Demo de asistente que simula conversación masiva de varios turnos (empleado dev junior) para el día de onboarding {DIA_ONBOARDING}.
+               - AS13: Demo de asistente que simula conversación de 1 turno (empleado dev junior) para los cinco primeros días.
+               - AS21: Demo de asistente que simula checklist JSON, para el día de onboarding {DIA_ONBOARDING}.
+               - AS22: Demo de asistente que simula checklist JSON, para los cinco primeros días.
+               - AS31: Demo de asistente que simula mismo mensaje con empleado comercial vs remoto UE, para el día de onboarding {DIA_ONBOARDING}.
+               
 #Indentificador: """)
 
-    if id.upper() == "AS1":
-        demo_1_conversacion(data_model, "emp_01")
-    elif id.upper() == "AS2":
-        demo_2_checklist(data_model, "emp_01")
-    elif id.upper() == "AS3":
-        demo_3_comparar_perfiles(data_model, "emp_02", "emp_03")
-    elif id.upper() == "AS4":
-        demo_4_conversacion_masiva(data_model, "emp_01")
+    if id.upper() == "AS11":
+        demo_11_conversacion(data_model, "emp_01")
+    elif id.upper() == "AS12":
+        demo_12_conversacion_masiva(data_model, "emp_01")
+    elif id.upper() == "AS13":
+        demo_13_conversacion_5_dias(data_model, "emp_01")
+    elif id.upper() == "AS21":
+        demo_21_checklist(data_model, "emp_01")
+    elif id.upper() == "AS22":
+        demo_22_checklist_5_dias(data_model, "emp_01")
+    elif id.upper() == "AS31":
+        demo_31_comparar_perfiles(data_model, "emp_02", "emp_03")
+    
     else:
         print("Identificador no soportado. Fin del programa")
-
 
 if __name__ == "__main__":
     main()

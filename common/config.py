@@ -48,12 +48,34 @@ PERFILES = {
     },
 }
 
-# RMO: MAXIMO NUMERO DE TURNOS (LO QUE RECUERDA EL LLM) QUE SOPORTA 
-# EL SISTEMA
-TURNOS = 4
+
+
+# RMO: MAXIMO NUMERO DE MENSAJES (LO QUE RECUERDA EL LLM) QUE SOPORTA EL SISTEMA
+# 4 TURNOS SON 8 MENSAJES (4 DEL USUARIO Y 4 DEL ASISTENTE)
+MSG_LIMIT_CONTEXT = 8
+
+FAQS_LIMIT = 2
+DOCS_LIMIT = 4
 
 #############################
 # PARAMETROS PARA DEMOS     # 
 #############################
-
 DIA_ONBOARDING = 1
+
+TAGS_DIA_ONBOARDING = {
+    1: ["bienvenida", "primer_dia", "onboarding", "primeras_semanas"],
+    2: ["onboarding", "primeras_semanas"],
+    3: ["onboarding", "primeras_semanas"],
+    4: ["onboarding", "primeras_semanas"],
+    5: ["onboarding", "primeras_semanas"],
+}
+
+CUERPO_DIA_ONBOARDING = {
+    1: ["DÍA 1", "DIA 1", "PRIMER DÍA", "PRIMER DIA"],
+    2: ["DÍA 2", "DIA 2", "SEGUNDO DÍA", "SEGUNDO DIA"],
+    3: ["DÍA 3", "DIA 3", "TERCER DÍA", "TERCER DIA"],
+    4: ["DÍA 4", "DIA 4", "CUARTO DÍA", "CUARTO DIA"],
+    5: ["DÍA 5", "DIA 5", "QUINTO DÍA", "QUINTO DIA"],
+}
+    
+    

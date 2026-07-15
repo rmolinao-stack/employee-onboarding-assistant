@@ -25,8 +25,8 @@ def configurar_gemini_api_key() -> None:
             "Pega aquí tu GEMINI_API_KEY (input oculto): "
         )
 
-    print(
-        "GEMINI_API_KEY configurada:",
-        "sí" if os.getenv("GEMINI_API_KEY") else "no",
-    )
+    # print(
+    #     "GEMINI_API_KEY configurada:",
+    #     "sí" if os.getenv("GEMINI_API_KEY") else "no",
+    # )
     _configured = True
