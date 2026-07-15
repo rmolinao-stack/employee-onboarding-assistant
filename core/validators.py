@@ -1,33 +1,5 @@
 import re
-
-
-SUSPICIOUS_INJECTION_PATTERNS = [
-    r"ignora(?:r)? (?:las )?(?:instrucciones|reglas|prioridades|indicaciones|todo)",
-    r"olvida(?:r)? (?:que|lo)",
-    r"ahora eres",
-    r"revela(?:r)?",
-    r"contrase(?:\u00f1|n)a",
-    r"token",
-    r"api key",
-    r"secreto",
-]
-
-SENSITIVE_DATA_PATTERNS = [
-    r"\b(salario|sueldo|bonus|comisi[oó]n|cobra|gana|paga|remuneraci[oó]n)\b",
-]
-
-OUT_OF_DOMAIN_PATTERNS = [
-    r"\b(ejercicio|examen|curso externo|programa formativo|tarea de universidad|practica|práctica)\b",
-]
-
-POLICY_PATTERNS = [
-    r"\b(pol[ií]tica|norma|regla|ley|plazo|vacaciones|ausencia)\b",
-]
-
-AMBIGUOUS_MEDICAL_PATTERNS = [
-    r"\b(baja|m[eé]dica|operaci[oó]n|hospital|medicinas|enfermedad)\b",
-]
-
+from common.config import SUSPICIOUS_INJECTION_PATTERNS, SENSITIVE_DATA_PATTERNS, OUT_OF_DOMAIN_PATTERNS, POLICY_PATTERNS, AMBIGUOUS_MEDICAL_PATTERNS
 
 def validar_mensaje_usuario(user_msg: str) -> tuple[bool, str]:
     mensaje = (user_msg or "").strip()
@@ -58,7 +30,6 @@ def validar_mensaje_usuario(user_msg: str) -> tuple[bool, str]:
         return False, "La solicitud es ambigua entre salud y laboral; requiere derivación a RRHH o salud laboral."
 
     return True, ""
-
 
 def construir_respuesta_segura(razon: str) -> str:
     return (

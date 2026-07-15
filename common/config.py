@@ -77,5 +77,36 @@ CUERPO_DIA_ONBOARDING = {
     4: ["DÍA 4", "DIA 4", "CUARTO DÍA", "CUARTO DIA"],
     5: ["DÍA 5", "DIA 5", "QUINTO DÍA", "QUINTO DIA"],
 }
+
+############################################
+# PARAMETROS PARA SEGURIDAD Y ROBUSTEZ     # 
+###########################################
+
+SUSPICIOUS_INJECTION_PATTERNS = [
+    r"ignora(?:r)? (?:las )?(?:instrucciones|reglas|prioridades|indicaciones|todo)",
+    r"olvida(?:r)? (?:que|lo)",
+    r"ahora eres",
+    r"revela(?:r)?",
+    r"contrase(?:\u00f1|n)a",
+    r"token",
+    r"api key",
+    r"secreto",
+]
+
+SENSITIVE_DATA_PATTERNS = [
+    r"\b(salario|sueldo|bonus|comisi[oó]n|cobra|gana|paga|remuneraci[oó]n)\b",
+]
+
+OUT_OF_DOMAIN_PATTERNS = [
+    r"\b(ejercicio|examen|curso externo|programa formativo|tarea de universidad|practica|práctica)\b",
+]
+
+POLICY_PATTERNS = [
+    r"\b(pol[ií]tica|norma|regla|ley|plazo|vacaciones|ausencia)\b",
+]
+
+AMBIGUOUS_MEDICAL_PATTERNS = [
+    r"\b(baja|m[eé]dica|operaci[oó]n|hospital|medicinas|enfermedad)\b",
+]
     
     
