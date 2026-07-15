@@ -1,5 +1,5 @@
 from common.utils import imprimir_contexto_seleccionado
-from core.safety import construir_respuesta_segura, validar_mensaje_usuario
+from core.validators import construir_respuesta_segura, validar_mensaje_usuario
 from model.data_model import DataModel
 from common.config import DOCS_LIMIT, FAQS_LIMIT, TEMPERATURE, LLM_PROVEEDOR
 from llm.gemini.gemini_auth import configurar_gemini_api_key
