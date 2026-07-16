@@ -48,20 +48,18 @@ def seleccionar_docs(faqs: list[dict], empl: str, data_model: DataModel, consult
     return context_delimiter.seleccionar_docs(faqs, empl, data_model, consulta, max_entradas, dia_onboarding)
 
 def procesar_llamada(data_model: DataModel, llm_config: LlmConfig, user_history: UserHistory, user_msg: str, faqs: list[dict], docs: list[dict]) -> str:
-    print("############### A REVISAR ###############") 
     valido, razon = validar_mensaje_usuario(user_msg)
-    if not valido:
-        user_history.append_user_message(user_msg)
-        user_history.append_assistant_message(construir_respuesta_segura(razon))
-        return construir_respuesta_segura(razon)
-    print("############### FIN A REVISAR ###############") 
-
-    prompt = prompt_builder.build_assistant_prompt(data_model, llm_config, user_history, user_msg, faqs, docs)
-    # print (prompt)
     user_history.append_user_message(user_msg)
-    return llamar_llm(prompt, temperature=TEMPERATURE)
+    if not valido:
+        llm_msg = construir_respuesta_segura(razon)
+    else:
+        prompt = prompt_builder.build_assistant_prompt(data_model, llm_config, user_history, user_msg, faqs, docs)
+        llm_msg = llamar_llm(prompt, temperature=TEMPERATURE)
+        user_history.append_assistant_message(llm_msg)
+    return llm_msg
     # return ""
 
+# RMO SI LLAMAMOS A ESTO NO GUARDAMOS EL CONTEXTO. NO ES NECESARIO
 def procesar_llamada_json(data_model: DataModel, llm_config: LlmConfig, user_history: UserHistory, docs: list[dict], dia_onboarding: int) -> str:
     prompt = prompt_builder.build_checklist_json_prompt(data_model, llm_config, user_history, docs, dia_onboarding)
     # print (prompt)
@@ -84,13 +82,13 @@ def simular_conversacion(data_model: DataModel, empl: str, list_msg: list[str], 
     llm_config = inicializar_asistente_llm()
     
     for user_msg in list_msg:
+        print(user_msg)
         faqs = seleccionar_faqs(data_model, empl, user_msg, FAQS_LIMIT, dia_onboarding)
         docs = seleccionar_docs(faqs, empl, data_model, user_msg, DOCS_LIMIT, dia_onboarding)
         # imprimir_contexto_seleccionado(faqs, docs)
         llm_msg = procesar_llamada(data_model, llm_config, user_history, user_msg, faqs, docs)
-        user_history.append_assistant_message(llm_msg)
-        print(user_msg)
         print(llm_msg)
+
 
 def generar_checklist_json(data_model: DataModel, empl: str, dia_onboarding: int):
     user_history = inicializar_user_history(data_model, empl, False)
@@ -98,6 +96,5 @@ def generar_checklist_json(data_model: DataModel, empl: str, dia_onboarding: int
     
     docs = seleccionar_docs([{}], empl, data_model, "", DOCS_LIMIT, dia_onboarding)
     llm_msg = procesar_llamada_json(data_model, llm_config, user_history, docs, dia_onboarding)
-
     print(llm_msg)
 

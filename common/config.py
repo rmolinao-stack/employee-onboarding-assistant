@@ -20,7 +20,8 @@ MODEL ="gemini-3.1-flash-lite-preview"
 # RMO: Modelo secundario para hacer las pruebas de benchmark
 # LLM_MODEL_B = "gemini-3-flash-preview"
 # RMO: Temperartura de los modelos.
-TEMPERATURE = 0.3
+TEMPERATURE = 0.2
+MSG_LENGTH_LIMIT = 400
 
 # RMO: PERFILES SOPORTADOS POR LA DEMO
 PERFILES = {
@@ -91,22 +92,6 @@ SUSPICIOUS_INJECTION_PATTERNS = [
     r"token",
     r"api key",
     r"secreto",
-]
-
-SENSITIVE_DATA_PATTERNS = [
-    r"\b(salario|sueldo|bonus|comisi[oó]n|cobra|gana|paga|remuneraci[oó]n)\b",
-]
-
-OUT_OF_DOMAIN_PATTERNS = [
-    r"\b(ejercicio|examen|curso externo|programa formativo|tarea de universidad|practica|práctica)\b",
-]
-
-POLICY_PATTERNS = [
-    r"\b(pol[ií]tica|norma|regla|ley|plazo|vacaciones|ausencia)\b",
-]
-
-AMBIGUOUS_MEDICAL_PATTERNS = [
-    r"\b(baja|m[eé]dica|operaci[oó]n|hospital|medicinas|enfermedad)\b",
 ]
     
     
