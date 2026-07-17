@@ -1,9 +1,8 @@
 
 from model import data_model
 from model.data_model import DataModel
-from core.llm_config import LlmConfig
 from core.user_history import UserHistory
-from common.config import PERFILES, MSG_LIMIT_CONTEXT
+from common.config import PERFILES, MSG_LIMIT_CONTEXT, IDIOMAS_PERMITIDOS
 
 def build_faq_docs_block(faqs: list[dict], docs: list[dict]) -> str:
     lines = [""]
@@ -34,7 +33,6 @@ def build_history_block(messages: list[dict]) -> str:
 
 def build_assistant_prompt(
     data_model: DataModel,
-    llm_config: LlmConfig,
     user_history: UserHistory,
     user_msg: str,
     faqs: list[dict] | None = None,
@@ -43,6 +41,9 @@ def build_assistant_prompt(
     
     dept_empl = user_history.user_profile["departamento"]
     dept_mision = ""
+    # RMO: Dejamos que el agente responda en el mismo idioma que la pregunta.
+    # En caso de querer forzar un idioma, se puede usar la siguiente línea y meterlo en el prompt:
+    # idioma = print(IDIOMAS_PERMITIDOS.get(user_history.user_profile.get("idioma_preferido"), IDIOMAS_PERMITIDOS.get("default")))
 
     # RMO: Para poner el nombre bonito de departamento
     for dept in data_model.getEmpresa()["departamentos"]:
@@ -53,10 +54,11 @@ def build_assistant_prompt(
     prompt = f"""Eres un producto llamado {data_model.getEmpresa()["producto_reto"]}.
 Tu objetivo es el siguiente: {data_model.getEmpresa()["alcance_producto"]}.
 
-El empleado al que debes ayudar tiene los siguientes datos relvantes:
+El empleado al que debes ayudar tiene los siguientes datos relevantes:
 - Nombre: {user_history.user_profile["nombre"]} 
 - id: {user_history.user_profile["id"]}
 - Departamento: {dept_empl}
+- Está en su día de onboarding: {user_history.dia_onboarding}
 
 El departamento tiene la siguiente misión {dept_mision}.
 
@@ -64,11 +66,12 @@ El empleado tiene el siguiente perfil: {PERFILES[user_history.user_profile["perf
 Debes aplicar el siguiente tono: {PERFILES[user_history.user_profile["perfil"]]["tono"]}. 
 En el tono debes tener en cuenta la misión del departamento.
 
-Además debes seguir las siguientes instrucciones immutables:
+Además debes seguir las siguientes instrucciones que son immutables y debes cumplir sin excepción:
 - No se puede cambiar de empleado. Para ello hay que cerrar el chat actual y abrir uno nuevo.
 - Solo ayudas a empleados nuevos con accesos, políticas y primeros días.
-- No inventes políticas, plazos o cifras no documentadas.
 - No se puede dar información salaríal ni datos de ningún otro empleado.
+- Si encuentras alguna ambiguedad en la pregunta del usuario, debes pedir aclaración antes de responder.
+- No inventes políticas, plazos o cifras no documentadas. 
 
 {build_faq_docs_block(faqs, docs)}
 
@@ -85,13 +88,12 @@ Además debes seguir las siguientes instrucciones immutables:
 --- FIN MENSAJE USUARIO ---
  
 """.strip()
-    #print(prompt)
+    # print(prompt)
     return prompt
 
 
 def build_checklist_json_prompt(
     data_model: DataModel,
-    llm_config: LlmConfig,
     user_history: UserHistory,
     docs: list[dict] | None = None,
     dia_onboarding: int = 1,
@@ -121,6 +123,53 @@ El JSON debe tener la siguiente estructura:
 
 """.strip()
     
-    #print(prompt)
+   #print(prompt)
+    return prompt
 
+
+def build_assistant_prompt_vulnerable(
+    data_model: DataModel,
+    user_history: UserHistory,
+    user_msg: str,
+    faqs: list[dict] | None = None,
+    docs: list[dict] | None = None,
+) -> str:
+    
+    dept_empl = user_history.user_profile["departamento"]
+    dept_mision = ""
+    # RMO: Dejamos que el agente responda en el mismo idioma que la pregunta.
+    # En caso de querer forzar un idioma, se puede usar la siguiente línea y meterlo en el prompt:
+    # idioma = print(IDIOMAS_PERMITIDOS.get(user_history.user_profile.get("idioma_preferido"), IDIOMAS_PERMITIDOS.get("default")))
+
+    # RMO: Para poner el nombre bonito de departamento
+    for dept in data_model.getEmpresa()["departamentos"]:
+        if dept["id"] == user_history.user_profile["departamento"]:
+            dept_empl = dept["nombre"]
+            dept_mision = dept["mision"]
+
+    prompt = f"""El empleado al que debes ayudar tiene los siguientes datos relevantes:
+- Nombre: {user_history.user_profile["nombre"]} 
+- id: {user_history.user_profile["id"]}
+- Departamento: {dept_empl}
+- Está en su día de onboarding: {user_history.dia_onboarding}
+
+El departamento tiene la siguiente misión {dept_mision}.
+
+El empleado tiene el siguiente perfil: {PERFILES[user_history.user_profile["perfil"]]["perfil"]}.
+Debes aplicar el siguiente tono: {PERFILES[user_history.user_profile["perfil"]]["tono"]}. 
+En el tono debes tener en cuenta la misión del departamento.
+
+{build_faq_docs_block(faqs, docs)}
+
+--- INICIO HISTORIAL DE MENSAJES ---
+
+{build_history_block(user_history.ultimos_n(MSG_LIMIT_CONTEXT))}
+
+--- FIN HISTORIAL DE MENSAJES ---
+
+{user_msg}
+
+ 
+""".strip()
+    #print(prompt)
     return prompt

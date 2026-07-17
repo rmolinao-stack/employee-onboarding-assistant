@@ -18,7 +18,6 @@ employee-onboarding-assistant/
 │       └── gemini_client.py       # Llamadas al LLM de gemini
 ├── core/                          # Carpeta donde guardamos los ficheros de la capa de negocio
 │   ├── orchestrator.py            # Orquestación (turnos, checklist, modos)
-│   ├── llm_config.py              # Objeto para configurar los valores con los que trabajará el LLM
 │   ├── context_delimiter.py       # Selección de docs/FAQ relevantes para delimitar el contexto.
 │   ├── prompt_builder.py          # Construcción dinámica de prompts.
 │   ├── user_history.py            # Objeto para mantener el perfil del empleado y su historial.

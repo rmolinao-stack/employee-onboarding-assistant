@@ -15,12 +15,56 @@ DOCS_PATH = DATA_DIR / "onboarding_docs.json"
 # RMO: Se indica que proveedor de LLM se va a utilizar.git 
 LLM_PROVEEDOR = "GEMINI"
 # RMO: Modelo principal del proyecto
-#MODEL = "gemini-3-flash-preview"
+
+#MODEL ="gemini-3-flash-preview"
 MODEL ="gemini-3.1-flash-lite-preview"
+#MODEL = "gemini-2.0-flash-lite"
+
+# gemini-2.5-flash
+# gemini-2.5-pro
+# gemini-2.0-flash
+# gemini-2.0-flash-001
+# gemini-2.0-flash-lite-001
+# gemini-2.0-flash-lite
+# gemini-2.5-flash-preview-tts
+# gemini-2.5-pro-preview-tts
+# gemma-4-26b-a4b-it
+# gemma-4-31b-it
+# gemini-flash-latest
+# gemini-flash-lite-latest
+# gemini-pro-latest
+# gemini-2.5-flash-lite
+# gemini-2.5-flash-image
+# gemini-3-pro-preview
+# gemini-3-flash-preview
+# gemini-3.1-pro-preview
+# gemini-3.1-pro-preview-customtools
+# gemini-3.1-flash-lite-preview
+# gemini-3.1-flash-lite
+# gemini-3-pro-image-preview
+# gemini-3-pro-image
+# nano-banana-pro-preview
+# gemini-3.1-flash-image-preview
+# gemini-3.1-flash-image
+# gemini-3.1-flash-lite-image
+# gemini-3.5-flash
+# gemini-omni-flash-preview
+# lyria-3-clip-preview
+# lyria-3-pro-preview
+# gemini-3.1-flash-tts-preview
+# gemini-robotics-er-1.5-preview
+# gemini-robotics-er-1.6-preview
+# gemini-2.5-computer-use-preview-10-2025
+# antigravity-preview-05-2026
+# deep-research-max-preview-04-2026
+# deep-research-preview-04-2026
+# deep-research-pro-preview-12-2025
+
+
 # RMO: Modelo secundario para hacer las pruebas de benchmark
 # LLM_MODEL_B = "gemini-3-flash-preview"
 # RMO: Temperartura de los modelos.
-TEMPERATURE = 0.2
+TEMPERATURE = 0.3
 MSG_LENGTH_LIMIT = 400
 
 # RMO: PERFILES SOPORTADOS POR LA DEMO
@@ -48,6 +92,9 @@ PERFILES = {
         "tono": "Debes tener un tono arientadoa políticas cross-border.",
     },
 }
+
+# RMO: IDIOMAS PERMITIDOS
+IDIOMAS_PERMITIDOS = {"es": "Español", "en": "Inglés", "default": "Español"}
 
 
 
@@ -84,8 +131,8 @@ CUERPO_DIA_ONBOARDING = {
 ###########################################
 
 SUSPICIOUS_INJECTION_PATTERNS = [
-    r"ignora(?:r)? (?:las )?(?:instrucciones|reglas|prioridades|indicaciones|todo)",
-    r"olvida(?:r)? (?:que|lo)",
+    r"ignora(?:r)? (?:todas |las |mis |estas )*(?:instrucciones|reglas|prioridades|indicaciones|todo)",
+    r"olvida(?:r)? (?:que|lo|todo)",
     r"ahora eres",
     r"revela(?:r)?",
     r"contrase(?:\u00f1|n)a",

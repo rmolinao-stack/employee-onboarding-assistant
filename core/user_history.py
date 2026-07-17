@@ -1,5 +1,6 @@
+from common.config import DIA_ONBOARDING
 class UserHistory:
-    def __init__(self, user_profile: dict, messages: list[dict] = []):
+    def __init__(self, user_profile: dict, messages: list[dict] = None, dia_onboarding: int = DIA_ONBOARDING):
         '''
         Constructor
 
@@ -9,7 +10,9 @@ class UserHistory:
 
         '''
         self.user_profile = user_profile
-        self.messages = messages
+        self.messages = messages if messages is not None else []
+        self.turno = 0
+        self.dia_onboarding = dia_onboarding
 
     def append_user_message(self, texto: str) -> None:
         """Añade mensaje del usuario al historial."""
@@ -18,6 +21,7 @@ class UserHistory:
     def append_assistant_message(self, texto: str) -> None:
         """Añade respuesta del asistente al historial."""
         self.messages.append({"role": "assistant", "text": texto.strip()})
+        self.turno += 1
     
     def ultimos_n(self, n: int) -> list[dict]:
         """Devuelve los últimos n mensajes."""

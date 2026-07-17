@@ -1,5 +1,5 @@
 import re
-from common.config import MSG_LENGTH_LIMIT, SUSPICIOUS_INJECTION_PATTERNS, SENSITIVE_DATA_PATTERNS, OUT_OF_DOMAIN_PATTERNS, POLICY_PATTERNS, AMBIGUOUS_MEDICAL_PATTERNS
+from common.config import MSG_LENGTH_LIMIT, SUSPICIOUS_INJECTION_PATTERNS
 
 def validar_mensaje_usuario(user_msg: str) -> tuple[bool, str]:
     mensaje = (user_msg or "").strip()
@@ -13,7 +13,7 @@ def validar_mensaje_usuario(user_msg: str) -> tuple[bool, str]:
     texto = mensaje.lower()
 
     if any(re.search(pattern, texto) for pattern in SUSPICIOUS_INJECTION_PATTERNS):
-        return False, "El mensaje contiene palabras no permitidas."
+        return False, "Intento de prompt injection u obtención de información sensible detectado."
     
     return True, ""
 
