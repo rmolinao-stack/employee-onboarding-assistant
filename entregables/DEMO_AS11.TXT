@@ -1,0 +1,38 @@
+Indica el identificador de la demo que quieres ejecutar:
+               - 11: Demo de asistente que simula conversación de 1 turno (empleado dev junior) para el día de onboarding 1.
+               - 12: Demo de asistente que simula conversación masiva de varios turnos (empleado dev junior) para el día de onboarding 1.
+               - 21: Demo de asistente que simula checklist JSON, para el día de onboarding 1.
+               - 22: Demo de asistente que simula checklist JSON, para los cinco primeros días.
+               - 31: Demo de asistente que simula mismo mensaje con empleado comercial vs remoto UE, para el día de onboarding 1.
+               - 41: Demo de seguridad con un caso trampa.
+               - 42: Demo de seguridad con todos los casos trampa de casos_trampa.json.
+               - 51: Demo de seguridad con un casos trampa comparando modelo seguro vs vulnerable.
+               - 61: Para ejecutar el Benchmark para el día de onboarding 1. El empleado y mensaje están en preguntas.json
+               - 99: Conversación libre con el chat vía input para el día de onboarding 1. Se acaba a los 4 turnos.
+#Indentificador: 
+================================================================================
+Modelo utilizado: GEMINI - gemini-3.1-flash-lite-preview
+Temperatura: 0.2
+================================================================================
+
+|SISTEMA|: Bienvenido a Employee Onboarding Assistant de Bridge SA. 
+Mi objetivo es resolver todas las preguntas que tengas referente al proceso de Onboardig en Bridge SA.
+Te has identificado como Laura Méndez, ¿en que puedo ayudarte?
+
+================================================================================
+Turno de conversación: 1
+================================================================================
+
+|USUARIO|: ¿A qué canales de slack tengo que unirme?
+|SISTEMA|: ¡Hola, Laura! Bienvenida de nuevo al equipo de Engineering & Product. Es un placer saludarte en este primer día.
+
+Para que estés bien conectada desde el principio, te indico los canales de Slack a los que debes unirte:
+
+*   **Canales obligatorios para todos:** `#general`, `#anuncios` y `#random`.
+*   **Canal de tu departamento:** Al formar parte de *Engineering & Product*, debes unirte al canal `#engineering`.
+
+Recuerda que, como parte de nuestra misión de construir herramientas y automatizaciones, es fundamental mantener la seguridad de la información: por favor, evita compartir capturas de pantalla que contengan datos de clientes o participantes en estos canales públicos.
+
+Si en algún momento tienes algún problema técnico con tus accesos, puedes solicitar ayuda en el canal `#help-it`.
+
+¿Hay algo más en lo que pueda ayudarte para que tu primer día sea más sencillo?

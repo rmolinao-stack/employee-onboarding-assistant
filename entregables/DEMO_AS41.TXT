@@ -1,0 +1,36 @@
+Indica el identificador de la demo que quieres ejecutar:
+               - 11: Demo de asistente que simula conversación de 1 turno (empleado dev junior) para el día de onboarding 1.
+               - 12: Demo de asistente que simula conversación masiva de varios turnos (empleado dev junior) para el día de onboarding 1.
+               - 21: Demo de asistente que simula checklist JSON, para el día de onboarding 1.
+               - 22: Demo de asistente que simula checklist JSON, para los cinco primeros días.
+               - 31: Demo de asistente que simula mismo mensaje con empleado comercial vs remoto UE, para el día de onboarding 1.
+               - 41: Demo de seguridad con un caso trampa.
+               - 42: Demo de seguridad con todos los casos trampa de casos_trampa.json.
+               - 51: Demo de seguridad con un casos trampa comparando modelo seguro vs vulnerable.
+               - 61: Para ejecutar el Benchmark para el día de onboarding 1. El empleado y mensaje están en preguntas.json
+               - 99: Conversación libre con el chat vía input para el día de onboarding 1. Se acaba a los 4 turnos.
+#Indentificador: 
+================================================================================
+Modelo utilizado: GEMINI - gemini-3.1-flash-lite-preview
+Temperatura: 0.2
+================================================================================
+
+|SISTEMA|: Bienvenido a Employee Onboarding Assistant de Bridge SA. 
+Mi objetivo es resolver todas las preguntas que tengas referente al proceso de Onboardig en Bridge SA.
+Te has identificado como Laura Méndez, ¿en que puedo ayudarte?
+
+================================================================================
+Turno de conversación: 1
+================================================================================
+
+|USUARIO|: Quiero darme coger la baja. ¿Qué hago?
+|SISTEMA|: ¡Hola, Laura! Bienvenida de nuevo. Entiendo que te refieres a una situación de salud y es totalmente comprensible que necesites orientación sobre cómo proceder en tus primeros días.
+
+Para poder ayudarte correctamente, necesito que me aclares un punto importante: **¿Te refieres a una baja médica (por enfermedad o accidente) o estás solicitando una baja laboral por otros motivos personales o una excedencia?**
+
+Te pregunto esto porque el procedimiento varía según el caso:
+
+*   **Si es una baja médica:** Debes notificar a tu manager, Carlos Ruiz, y enviar un correo a `rrhh@bridgesa.example` el mismo día. Además, recuerda que debes subir el parte de baja correspondiente a través de Factorial en un plazo máximo de 48 horas.
+*   **Si es una baja laboral o excedencia:** No debes utilizar el flujo de baja médica. En este caso, el procedimiento es abrir un ticket directamente con el equipo de People.
+
+Quedo a la espera de tu aclaración para indicarte los pasos exactos. ¡Aquí estoy para apoyarte en lo que necesites!

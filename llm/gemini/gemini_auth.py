@@ -1,10 +1,3 @@
-"""gemini_auth.py — Configuración de la API key de Gemini.
-
-Qué hace este módulo:
-  - Lee `GEMINI_API_KEY` desde `.env` (python-dotenv).
-  - Si no hay clave, la pide por consola con `getpass` (no se ve al escribir).
-"""
-
 import os
 import getpass
 

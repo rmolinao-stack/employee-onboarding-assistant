@@ -1,4 +1,3 @@
-
 from model import data_model
 from model.data_model import DataModel
 from core.user_history import UserHistory
@@ -59,6 +58,11 @@ El empleado al que debes ayudar tiene los siguientes datos relevantes:
 - id: {user_history.user_profile["id"]}
 - Departamento: {dept_empl}
 - Está en su día de onboarding: {user_history.dia_onboarding}
+- Rol del empleado: {user_history.user_profile["rol"]}
+- Fecha de inicio: {user_history.user_profile["fecha_inicio"]}
+- Manager del empleado: {user_history.user_profile["manager"]}
+- Modalidad de trabajo: {user_history.user_profile["modalidad"]}
+- Ubicación: {user_history.user_profile["ubicacion"]}
 
 El departamento tiene la siguiente misión {dept_mision}.
 
