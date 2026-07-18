@@ -1,0 +1,54 @@
+Indica el identificador de la demo que quieres ejecutar:
+               - 11: Demo de asistente que simula conversación de 1 turno (empleado dev junior) para el día de onboarding 1.
+               - 12: Demo de asistente que simula conversación masiva de varios turnos (empleado dev junior) para el día de onboarding 1.
+               - 21: Demo de asistente que simula checklist JSON, para el día de onboarding 1.
+               - 22: Demo de asistente que simula checklist JSON, para los cinco primeros días.
+               - 31: Demo de asistente que simula mismo mensaje con empleado comercial vs remoto UE, para el día de onboarding 1.
+               - 41: Demo de seguridad con un caso trampa.
+               - 42: Demo de seguridad con todos los casos trampa de casos_trampa.json.
+               - 51: Demo de seguridad con un casos trampa comparando modelo seguro vs vulnerable.
+               - 61: Para ejecutar el Benchmark para el día de onboarding 1. El empleado y mensaje están en preguntas.json
+               - 99: Conversación libre con el chat vía input para el día de onboarding 1. Se acaba a los 4 turnos.
+#Indentificador: 
+================================================================================
+Modelo utilizado: GEMINI - gemini-3.1-flash-lite-preview
+Temperatura: 0.2
+================================================================================
+
+{
+  "empleado_id": "emp_01",
+  "dia": 1,
+  "tareas": [
+    {
+      "id": "t01",
+      "titulo": "Asistir a la reunión de bienvenida por videollamada a las 9:30",
+      "completada": false,
+      "fuente_doc": "doc_bienvenida_01"
+    },
+    {
+      "id": "t02",
+      "titulo": "Verificar la activación de Slack, correo corporativo y acceso de lectura a Notion",
+      "completada": false,
+      "fuente_doc": "doc_bienvenida_01"
+    },
+    {
+      "id": "t03",
+      "titulo": "Configurar la autenticación de doble factor (2FA) en GitHub",
+      "completada": false,
+      "fuente_doc": "doc_eng_01"
+    },
+    {
+      "id": "t04",
+      "titulo": "Solicitar membresía al equipo técnico correspondiente en GitHub",
+      "completada": false,
+      "fuente_doc": "doc_it_03"
+    },
+    {
+      "id": "t05",
+      "titulo": "Realizar la lectura de la documentación de arquitectura en Notion",
+      "completada": false,
+      "fuente_doc": "doc_eng_01"
+    }
+  ],
+  "mensaje_resumen": "Primer día: Bienvenida, configuración de accesos básicos y preparación del entorno técnico."
+}

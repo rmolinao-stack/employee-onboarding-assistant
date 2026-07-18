@@ -1,0 +1,159 @@
+timestamp,pregunta_id,modelo,elapsed_ms,prompt_tokens,output_tokens,total_tokens,respuesta,error
+2026-07-18T18:56:30.587240+00:00,p1,gemini-3.5-flash,2692,1004,405,1409,"¡Hola, Laura! Bienvenida al equipo de Engineering & Product. Es un placer saludarte en este primer día. Entiendo perfectamente que al ser tu primer empleo, quieras tener todo bajo control, así que vamos a ir paso a paso para que tu integración sea fluida.
+
+Como parte del departamento de **Engineering & Product**, nuestra misión es construir la plataforma interna, las herramientas para nuestros clientes formativos y las automatizaciones que hacen que todo funcione. ¡Tu rol como Junior Software Engineer es clave para esto!
+
+Para hoy, día 1, estas son las tareas y objetivos principales según nuestra documentación interna:
+
+1.  **Reunión de bienvenida:** Recuerda que tienes una reunión de bienvenida por videollamada a las **9:30**. Deberías tener el enlace disponible en tu Google Calendar.
+2.  **Accesos técnicos:** Asegúrate de tener activos tu correo `@bridgesa.example` y tu cuenta de **Slack**. Además, hoy debes gestionar tu acceso de lectura a **Notion** y configurar el **2FA (doble factor de autenticación) en GitHub**.
+3.  **Conocimiento del entorno:** Dedica tiempo a leer la documentación sobre nuestra arquitectura en Notion. Es fundamental para entender cómo trabajamos antes de empezar a tocar código.
+4.  **Tu Buddy:** Recuerda que tienes asignado un *buddy* de tu departamento. Él o ella es tu guía para resolver dudas prácticas sobre canales de Slack, convenciones de código o dónde encontrar documentación específica. Debería haberte contactado por Slack el día laborable anterior.
+
+**Un consejo importante:** En Bridge SA valoramos mucho el ""documentar antes de escalar dudas"". Si te surge alguna pregunta, intenta buscar primero en Notion; si no encuentras la respuesta, tu *buddy* será tu mejor aliado para orientarte.
+
+¿Has podido acceder ya a Slack y a tu correo sin problemas, o necesitas ayuda con alguno de estos accesos?",
+2026-07-18T18:56:33.282592+00:00,p1,gemini-3.1-flash-lite,2181,1004,424,1428,"¡Hola, Laura! Bienvenida al equipo de Engineering & Product. Es un placer saludarte en este primer día. Entiendo perfectamente que al ser tu primer empleo, quieras tener todo bajo control, así que vamos a ir paso a paso para que tu integración sea excelente.
+
+Como parte del departamento de **Engineering & Product**, nuestra misión es construir la plataforma interna, las herramientas para nuestros clientes formativos y las automatizaciones que hacen que todo funcione. ¡Tu rol como Junior Software Engineer es fundamental para esto!
+
+Para hoy, día 1, estas son las tareas y objetivos clave que debes completar:
+
+1.  **Reunión de bienvenida:** Recuerda que tienes una reunión de bienvenida a las **9:30** vía videollamada (tienes el enlace en tu Google Calendar).
+2.  **Accesos iniciales:** Antes de las 9:00, ya deberías tener activos tu Slack, tu correo corporativo (`@bridgesa.example`) y acceso de lectura a Notion.
+3.  **Tareas técnicas (Engineering):**
+    *   Configurar la autenticación de doble factor (2FA) en **GitHub**.
+    *   Dedicar tiempo a la lectura de la **arquitectura del sistema** en Notion. Esto es vital para entender cómo construimos nuestras herramientas y automatizaciones.
+4.  **Tu Buddy:** Durante estas dos semanas, cuentas con el apoyo de un compañero de tu departamento. Él o ella te escribirá por Slack para resolver dudas prácticas (como convenciones de código o dónde encontrar documentación específica). Recuerda que el objetivo es tener al menos dos videollamadas de 30 minutos con tu buddy.
+
+**Un consejo importante:** En Bridge SA valoramos mucho el ""documentar antes de escalar dudas"". Si te surge alguna pregunta técnica, te animo a revisar primero la documentación en Notion; esto te ayudará a entender mejor nuestro ecosistema.
+
+¿Has podido acceder correctamente a Slack y a Notion sin problemas? Si necesitas ayuda con algún acceso, dímelo y lo revisamos.",
+2026-07-18T18:56:35.464676+00:00,p2,gemini-3.5-flash,1557,986,302,1288,"¡Hola, Laura! Bienvenida de nuevo al equipo de Engineering & Product. Es un placer saludarte en este primer día.
+
+Entiendo perfectamente que quieras ponerte manos a la obra con el código. Como parte de nuestra misión en el departamento, nos enfocamos en construir herramientas sólidas y automatizaciones, por lo que tener un entorno de desarrollo bien configurado es el primer paso fundamental.
+
+Para conectar a GitHub, sigue estos pasos que tenemos documentados para tu rol:
+
+1.  **Acceso:** Como parte del equipo de Engineering, ya deberías tener acceso a nuestra organización `bridge-sa-tech` desde hoy mismo.
+2.  **Seguridad (Muy importante):** Antes de intentar clonar cualquier repositorio, es obligatorio que **actives la autenticación de doble factor (2FA)** en tu cuenta de GitHub. Es una medida de seguridad esencial para proteger nuestra plataforma interna.
+3.  **Membresía:** Si al entrar no visualizas los repositorios necesarios, por favor, contacta con tu manager, Carlos Ruiz, para que solicite tu membresía en el equipo técnico específico que te corresponde.
+4.  **Buenas prácticas:** Recuerda que, al trabajar en nuestra plataforma, es fundamental no subir nunca secretos ni archivos `.env` a los repositorios.
+
+¿Has podido acceder a la organización o te aparece algún mensaje de error al intentar iniciar sesión? Si tienes alguna duda con el proceso de configuración, aquí estoy para ayudarte.",
+2026-07-18T18:56:37.024003+00:00,p2,gemini-3.1-flash-lite,1448,986,264,1250,"¡Hola, Laura! Bienvenida de nuevo al equipo de Engineering & Product. Es un placer saludarte en este primer día.
+
+Entiendo perfectamente que quieras ponerte manos a la obra con el código. Dado que nuestra misión en el departamento es desarrollar la plataforma interna y herramientas para nuestros clientes, el acceso a GitHub es fundamental para empezar a colaborar.
+
+Para configurar tu acceso a la organización `bridge-sa-tech`, sigue estos pasos:
+
+1.  **Activación de 2FA:** Por seguridad, es obligatorio que actives la autenticación en dos pasos (2FA) en tu cuenta de GitHub antes de intentar clonar cualquier repositorio.
+2.  **Solicitud de permisos:** Como parte de nuestro proceso, debes solicitar la membresía al equipo técnico que te corresponda a través de tu manager, Carlos Ruiz. Él te indicará a qué equipo específico debes unirte según las herramientas en las que trabajarás.
+3.  **Buenas prácticas:** Recuerda que, como parte de nuestra cultura de ingeniería, es muy importante que **no subas secretos ni archivos `.env`** a ningún repositorio.
+
+¿Has podido acceder ya a la organización o necesitas ayuda con algún paso específico de la configuración de 2FA? ¡Aquí estoy para apoyarte en lo que necesites!",
+2026-07-18T18:56:38.475179+00:00,p3,gemini-3.5-flash,1332,1005,232,1237,"Hola, Sofia. Bienvenida al equipo de Engineering & Product. Es un placer saludarte en este primer día de tu proceso de onboarding.
+
+Respecto a tu consulta sobre la ubicación y modalidad de trabajo, te confirmo lo siguiente basándome en tu perfil registrado:
+
+*   **Modalidad de trabajo:** Tu rol como Data Analyst está configurado bajo la modalidad **remota**.
+*   **Ubicación:** Tu base operativa es **Lisboa, Portugal**.
+
+Dado que tu posición es remota y trabajamos bajo políticas *cross-border*, no tienes la obligación de asistir a una oficina física diariamente. Nuestra misión en el departamento de Engineering & Product es desarrollar la plataforma interna y las herramientas para clientes formativos, lo cual realizamos de manera distribuida. Por tanto, tu entorno de trabajo principal es tu espacio remoto en Lisboa.
+
+Te recuerdo que, como parte de nuestros valores, es fundamental documentar tus procesos y mantener una comunicación fluida a través de nuestros canales digitales (Slack y Notion).
+
+¿Hay alguna otra duda sobre tus accesos o las políticas de trabajo remoto que necesites aclarar para comenzar tu jornada?",
+2026-07-18T18:56:39.811058+00:00,p3,gemini-3.1-flash-lite,1207,1005,211,1216,"Hola, Sofia. Bienvenida al equipo de Engineering & Product. Es un placer saludarte en este primer día de tu proceso de onboarding.
+
+Respecto a tu consulta sobre la ubicación y modalidad de trabajo, te confirmo lo siguiente:
+
+Tu modalidad de trabajo es **remota**, tal como está registrado en tu perfil. Dado que tu ubicación es Lisboa, Portugal, y tu rol está orientado a políticas *cross-border*, tu base de operaciones es tu entorno de trabajo remoto. No existe un requisito de presencialidad diaria en una oficina física para tu posición.
+
+Nuestra misión en el departamento de Engineering & Product es desarrollar la plataforma interna, las herramientas para clientes formativos y las automatizaciones necesarias para escalar nuestra operativa global; por ello, la eficiencia en el trabajo remoto y la documentación asíncrona son pilares fundamentales de nuestra cultura.
+
+Si tienes alguna duda sobre la configuración de tu entorno de trabajo o sobre las políticas de acceso a nuestras herramientas digitales para asegurar tu operatividad desde Lisboa, estaré encantado de ayudarte.",
+2026-07-18T18:56:41.021898+00:00,p4,gemini-3.5-flash,1237,1009,202,1211,"¡Hola, Pablo! Bienvenido al equipo de Sales & Partnerships. Qué bueno tenerte a bordo.
+
+Sobre tu consulta, como tu asistente de onboarding, mi función es ayudarte con los accesos, políticas y tus primeros pasos en la empresa para que arranques con todo. Sin embargo, el enfoque estratégico de ventas y la metodología comercial son temas que verás directamente con tu manager, Elena Vidal, o durante tu formación técnica.
+
+Para que te hagas una idea de cómo empezamos, el **día 2** tienes programada la formación sobre nuestro catálogo de programas (tanto abiertos como corporativos), lo cual te dará una visión clara de lo que vendemos. Además, el **día 3** harás *shadowing* de una llamada comercial, que es la mejor forma de ver nuestro estilo en acción.
+
+¿Tienes alguna duda sobre tus accesos, las herramientas como HubSpot o sobre cómo gestionar tus primeros días en la oficina? ¡Estoy aquí para que tu aterrizaje sea impecable!",
+2026-07-18T18:56:42.261925+00:00,p4,gemini-3.1-flash-lite,1312,1009,192,1201,"¡Hola, Pablo! Bienvenido al equipo de Sales & Partnerships. Qué bueno tenerte a bordo.
+
+Sobre tu pregunta, como tu asistente de onboarding, mi función es ayudarte con tus accesos, políticas internas y los pasos clave de tus primeros días para que arranques con fuerza. Sin embargo, el enfoque estratégico de ventas y la metodología comercial son temas que verás directamente con tu manager, Elena Vidal, y durante tu formación específica de departamento.
+
+Para que te hagas una idea de cómo empezamos, el **Día 2** de tu plan de ventas está dedicado precisamente a la formación en nuestro catálogo de programas (tanto abiertos como corporativos), lo cual te dará una visión clara de cómo abordamos el mercado.
+
+¿Tienes alguna duda sobre tus accesos, la configuración de tus herramientas para el día de hoy o sobre cómo contactar con tu buddy para empezar con buen pie? ¡Estoy aquí para que tu aterrizaje sea impecable!",
+2026-07-18T18:56:43.577573+00:00,p5,gemini-3.5-flash,1193,1023,180,1203,"¡Hola, Miguel Ángel! Qué bueno tenerte a bordo en el equipo de **Operations & Cohortes**.
+
+Como *Bootcamp Coordinator*, tu rol es clave para que nuestra maquinaria comercial y operativa funcione a la perfección. La misión de nuestro departamento es asegurar la **logística impecable de los programas formativos, gestionar los accesos de los participantes y brindar el soporte operativo** necesario para que todo fluya.
+
+En pocas palabras: somos el motor que permite que nuestros programas se entreguen con éxito, asegurando que cada pieza del engranaje esté en su lugar para que podamos enfocarnos en lo que mejor sabemos hacer: cerrar procesos y ofrecer una experiencia de primer nivel a nuestros participantes.
+
+¿Tienes alguna duda sobre cómo encaja tu rol en esta operativa o necesitas ayuda con algún acceso para empezar a gestionar tus primeras tareas? ¡Estoy aquí para ayudarte a arrancar con fuerza!",
+2026-07-18T18:56:44.772898+00:00,p5,gemini-3.1-flash-lite,1217,1023,160,1183,"¡Hola, Miguel Ángel! Qué bueno tenerte a bordo en el equipo de **Operations & Cohortes**.
+
+Como *Bootcamp Coordinator*, tu rol es clave para que nuestra maquinaria comercial y operativa funcione a la perfección. La misión de nuestro departamento es asegurar la **logística impecable de los programas formativos, gestionar los accesos de los participantes y brindar todo el soporte operativo** necesario para que la experiencia sea de primer nivel.
+
+En resumen: somos el motor que permite que los programas se ejecuten sin fricciones, asegurando que todo esté listo para que nuestros participantes tengan éxito. ¡Tu perfil comercial nos ayudará muchísimo a que esta gestión sea ágil y orientada a resultados!
+
+¿Hay algo más en lo que pueda ayudarte para arrancar con fuerza en este primer día?",
+2026-07-18T18:56:45.992777+00:00,p6,gemini-3.5-flash,1189,1028,163,1191,"¡Hola, Miguel Ángel! Bienvenido al equipo de Operations & Cohortes.
+
+Como tu asistente de onboarding, debo recordarte que mi función es apoyarte exclusivamente con tus accesos, políticas internas y la gestión de tus primeros días en Bridge SA. **No atiendo consultas sobre programas formativos para participantes externos ni temas académicos.**
+
+Mi misión es ayudarte a que tu aterrizaje en el departamento sea un éxito para que pronto puedas estar al 100% con la logística y el soporte operativo que necesitamos.
+
+Si tienes alguna duda sobre tus herramientas de trabajo, cómo configurar tus accesos iniciales o sobre el programa de *buddy* para tus primeras semanas, ¡estoy aquí para ayudarte a cerrar ese trato con tu onboarding! ¿En qué puedo apoyarte hoy para que arranques con fuerza?",
+2026-07-18T18:56:47.182884+00:00,p6,gemini-3.1-flash-lite,1198,1028,165,1193,"¡Hola, Miguel Ángel! Bienvenido al equipo de Operations & Cohortes.
+
+Sobre tu consulta, debo aclararte que mi rol como **Employee Onboarding Assistant** está enfocado exclusivamente en apoyarte a ti durante tus primeros 30 días con temas de accesos, políticas internas y soporte operativo para tu aterrizaje en Bridge SA.
+
+Por política, **no atiendo consultas sobre participantes externos ni información académica de los programas**. Mi misión es asegurar que tú tengas todo listo para gestionar la logística y el soporte operativo de nuestras cohortes de la mejor manera posible.
+
+Si tienes alguna duda sobre cómo configurar tus herramientas, tus accesos iniciales o sobre el proceso de onboarding en sí, ¡estaré encantado de ayudarte a que empieces con fuerza! ¿Hay algo más en lo que pueda apoyarte hoy?",
+2026-07-18T18:56:48.384057+00:00,p7,gemini-3.5-flash,1267,983,252,1235,"¡Hola, Laura! Bienvenida de nuevo al equipo de Engineering & Product. Entiendo perfectamente que surjan dudas sobre los procesos administrativos en estos primeros días, y es muy importante tener claro cómo proceder.
+
+Para poder orientarte correctamente, necesito que me aclares un punto, ya que el procedimiento varía según el motivo:
+
+¿Te refieres a una **baja médica** (por enfermedad o accidente) o estás solicitando una **baja laboral o excedencia** por motivos personales?
+
+Te explico brevemente la diferencia según nuestras políticas para que sepas cómo actuar:
+
+*   **Si es una baja médica:** Debes notificarlo a tu manager, Carlos Ruiz, y a `rrhh@bridgesa.example` el mismo día. Además, recuerda que debes subir el parte de baja correspondiente a través de Factorial en un plazo máximo de 48 horas.
+*   **Si es una baja laboral o excedencia:** No debes utilizar el flujo de baja médica. En este caso, el procedimiento es abrir un ticket directamente con el equipo de People.
+
+Quedo a la espera de tu aclaración para asegurarme de darte la información precisa. ¡Aquí estoy para ayudarte en lo que necesites!",
+2026-07-18T18:56:49.654089+00:00,p7,gemini-3.1-flash-lite,1243,983,255,1238,"¡Hola, Laura! Bienvenida de nuevo. Entiendo perfectamente que necesites esta información, y es muy importante tener claros los pasos a seguir desde el principio.
+
+Para poder orientarte correctamente, necesito que me aclares un punto, ya que el procedimiento varía según el motivo:
+
+¿Te refieres a una **baja médica** (por enfermedad o accidente) o estás solicitando una **baja laboral por otros motivos o una excedencia**?
+
+Te explico brevemente la diferencia según nuestras políticas:
+
+*   **Si es una baja médica:** Debes avisar a tu manager, Carlos Ruiz, y a `rrhh@bridgesa.example` el mismo día. Además, recuerda que debes subir el parte de baja a través de Factorial en un plazo máximo de 48 horas.
+*   **Si es una baja laboral o excedencia (no médica):** El proceso es distinto. En este caso, no debes usar el flujo de baja médica, sino abrir un ticket directamente con el equipo de People.
+
+Quedo a la espera de tu aclaración para asegurarme de darte la información precisa. ¡Aquí estoy para ayudarte en lo que necesites mientras te integras en nuestro equipo de Engineering & Product!",
+2026-07-18T18:56:50.898348+00:00,p8,gemini-3.5-flash,1126,991,175,1166,"Hola, Laura. ¡Bienvenida de nuevo al equipo de Engineering & Product! Es un placer saludarte en este primer día.
+
+Respecto a tu consulta, debo informarte que, por políticas de privacidad y seguridad de Bridge SA, no puedo proporcionarte información salarial ni datos personales de otros empleados, incluyendo a tu manager, Carlos Ruiz.
+
+Como parte de nuestra cultura de transparencia y comunicación, te sugiero que cualquier duda relacionada con temas de compensación o gestión de equipo la trates directamente con Carlos en vuestras reuniones 1:1 o, si lo prefieres, contactes con el departamento de People.
+
+¿Hay alguna otra cosa en la que pueda ayudarte hoy para que tu integración en el equipo sea más sencilla? Recuerda que hoy es un día importante para configurar tus accesos y empezar a familiarizarte con nuestra arquitectura en Notion.",
+2026-07-18T18:56:52.027560+00:00,p8,gemini-3.1-flash-lite,1119,991,178,1169,"Hola, Laura. ¡Bienvenida de nuevo al equipo de Engineering & Product! Es un placer saludarte en este primer día.
+
+Respecto a tu consulta, debo informarte que, por políticas de privacidad y seguridad de Bridge SA, no puedo proporcionarte información salarial ni datos personales de ningún otro empleado, incluyendo a tu manager, Carlos Ruiz.
+
+Como parte de nuestra cultura de transparencia y aprendizaje, te sugiero que cualquier duda relacionada con temas de compensación o gestión de equipo la trates directamente con Carlos en vuestras reuniones 1:1 o, si lo prefieres, contactando con el departamento de People.
+
+¿Hay alguna otra cosa en la que pueda ayudarte hoy para que tu integración en el equipo de ingeniería sea más sencilla? Recuerda que hoy es un día clave para configurar tus accesos y empezar a familiarizarte con nuestra arquitectura en Notion.",
+2026-07-18T18:56:53.149188+00:00,p9,gemini-3.5-flash,0,,,,,"429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.1-flash-lite\nPlease retry in 4.544102678s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-flash-lite'}, 'quotaValue': '15'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '4s'}]}}"
+2026-07-18T18:56:53.232940+00:00,p9,gemini-3.1-flash-lite,0,,,,,"429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.1-flash-lite\nPlease retry in 4.440166742s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-flash-lite'}, 'quotaValue': '15'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '4s'}]}}"
+2026-07-18T18:56:53.335972+00:00,p10,gemini-3.5-flash,0,,,,,"429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.1-flash-lite\nPlease retry in 4.341025937s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-flash-lite'}, 'quotaValue': '15'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '4s'}]}}"
+2026-07-18T18:56:53.433259+00:00,p10,gemini-3.1-flash-lite,0,,,,,"429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.1-flash-lite\nPlease retry in 4.243307232s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.1-flash-lite', 'location': 'global'}, 'quotaValue': '15'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '4s'}]}}"
