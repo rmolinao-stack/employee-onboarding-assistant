@@ -60,18 +60,22 @@ Al iniciar la aplicación con main.py se solicita un código de 2 cifras para sa
 - 61: Para ejecutar el Benchmark para el día de onboarding {DIA_ONBOARDING}. El empleado y mensaje están en preguntas.json
 - 99: Conversación libre con el chat vía input para el día de onboarding {DIA_ONBOARDING}. Se acaba a los {TURNOS} turnos.
 
-## Modelo y temperatura utilizados para la demo
+## Modelo y temperatura utilizados
 
-- Modelo utilizado: GEMINI - gemini-3.1-flash-lite-preview
+### Modelo y temperatura utilizados para asistente conversacional:
+
+- Modelo utilizado: 
+  - GEMINI - gemini-3.1-flash-lite-preview
+  - **Justificación**: Se utiliza este modelo porque es el que más uso permite por día y ha permitido ejecutar todos los casos de uso/demo de una vez. Otros modelos se bloqueaban por exceso de uso diario.
 - Temperatura: 0.2
+
+### Modelo y temperatura utilizados para benchmark:
+- GEMINI - gemini-3.5-flash & GEMINI - gemini-3.1-flash-lite
+- **Justificación**: Se han usado estos ya que a priori parecían dos modelos robustos pero suficientemente distintos para obtener resultados relevantes.
+- **Peculiaridades**:
+  - 2 de los 10 casos ha dado problemas por limitaciones de uso de google. Aún así se ha decidido dejarlos como ejemplo de lo que podría pasar si usamos estos modelos con capa gratuita.
+  - Únicamente me he apoyado en la I.A (gemini) para la redacción de de matriz_decision_1.md y recomendacion_1.md. 
 
 ## Entregables
 
 - Además de los ficheros .md solicitados en el apartado de benchmark, se incluyen un .txt con una salida ejecutada de cada una de las demos implementadas, a excepción de la 61 (demos de benchmark en cuyo caso hay que mirar los .md y conclusiones del benchmark) y el 99 que es un chat libre.
-
-## Detalles sobre conclusiones Benchmark
-
-- 2 de los 10 casos ha dado problemas por limitaciones de uso de google.
-- Únicamente me he apoyado en la I.A (gemini) para la redacción de de matriz_decision_1.md y recomendacion_1.md. 
-
-
